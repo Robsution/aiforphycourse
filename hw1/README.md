@@ -7,9 +7,11 @@ The Perceptron Linear Algorithm is a supervised learning algorithm used for bina
 - and the weights $w$.
 
 The weights are only updated when the prediction algorithm fails via the rule $\vec{w} \leftarrow \vec{w} + y (\vec{w} \cdot \vec{x})$ based on Rosenblatt's proposal. The idea is: When the perceptron fails, the prediction-label product is negative, 
+
 $$
-y (\vec{x} \cdot \vec{w}) < 0,
+y (\vec{x} \cdot \vec{w}) \lt 0,
 $$
+
 so updating the weights at "pulls" the hyperplane in the direction necessary for the product to become positive. For any reasonable (not linearly separable) dataset, this will not converge.
 
 
