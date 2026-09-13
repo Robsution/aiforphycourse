@@ -1,6 +1,8 @@
 import numpy as np
 from pathlib import Path
 
+DATA_DIR = Path(__file__).resolve().parent / "data"
+
 def read_idx(path: str | Path) -> np.ndarray:
     """reads a single idx file with ubyte datatype
 
@@ -27,7 +29,7 @@ def read_idx(path: str | Path) -> np.ndarray:
 
 
 
-def load_mnist(data_dir: str | Path = "./data"):
+def load_mnist(data_dir: str | Path = DATA_DIR):
     """loads the mnist dataset train and validation sets
 
     Args:
@@ -50,5 +52,26 @@ def load_mnist(data_dir: str | Path = "./data"):
     
     return (X_train, y_train), (X_val, y_val)
 
-        
+
+def load_mnist_ez(data_dir: str | Path = DATA_DIR):
+    """easy version of load_mnist
+    fetches mnist data, flattens it and adds a bias column
+
+    Args:
+        data_dir (str | Path, optional): path to the mnist data files. Defaults to "./data".
+
+    Returns:
+        _type_: tuple of tuple pairs with training and validation sets
+    """
+    (X_train, y_train), (X_val, y_val) = load_mnist(data_dir)
+    
+    # flatten and normalize
+    X_train = X_train.reshape(X_train.shape[0], -1) / 255
+    X_val = X_val.reshape(X_val.shape[0], -1) / 255
+    # add bias x_0
+    X_train = np.c_[np.ones(X_train.shape[0]), X_train]
+    X_val = np.c_[np.ones(X_val.shape[0]), X_val]
+    
+    return (X_train, y_train), (X_val, y_val)
+    
         
