@@ -7,7 +7,9 @@ The Perceptron Linear Algorithm is a supervised learning algorithm used for bina
 - and the weights $w$.
 
 The weights are only updated when the prediction algorithm fails via the rule $\vec{w} \leftarrow \vec{w} + y (\vec{w} \cdot \vec{x})$ based on Rosenblatt's proposal. The idea is: When the perceptron fails, the prediction-label product is negative, 
-$$$y (\vec{x} \cdot \vec{w}) < 0$$$,
+$$
+y (\vec{x} \cdot \vec{w}) < 0,
+$$
 so updating the weights at "pulls" the hyperplane in the direction necessary for the product to become positive. For any reasonable (not linearly separable) dataset, this will not converge.
 
 
@@ -29,7 +31,7 @@ The images were flattened for easier processing. This also meant that the bias t
 
 
 ## 4. Accuracy
-Accuracy was defined to be: "The ratio of correct predictions to the total predictions made on the validation set." After each training epoch, this ratio and corresponding weights were saved. Below are tables for pairwise accuracy and all vs. one accuracy. They were generated with the `analyze.py` script, with the scores determined by taking the prediction ratio of the best-performing weights $w$ during 15 epochs of training.
+Accuracy was defined to be: "The ratio of correct predictions to the total predictions made on the validation set." After each training epoch, this ratio and corresponding weights were saved. Below are tables for pairwise accuracy and all vs. one accuracy. They were generated with the `analyze.py` script, with the scores determined by taking the prediction ratio of the best-performing weights $\vec{w}$ during 15 epochs of training.
 
 
 ![Pairwise prediction matrix](figures/pairwise_preds.png)
@@ -37,4 +39,4 @@ Accuracy was defined to be: "The ratio of correct predictions to the total predi
 ![All vs. One prediction accuracies](figures/all_preds.png)
 
 ## 5. Classification of all digits
-The model which is most confident will have the highest prediction $x \cdot w$. One could train multiple "one vs. all" models (one for each digit), and predict the digit based on the highest confidence score. 
+The model which is most confident will have the highest prediction $\vec{x} \cdot \vec{w}$. One could train multiple "one vs. all" models (one for each digit), and predict the digit based on the highest confidence score. 
