@@ -40,8 +40,8 @@ def allvsone(X_train: np.ndarray, y_train: np.ndarray, X_val: np.ndarray,
         _, all_acc = train(X_train, y_train, X_val, y_val, epochs, target, digits, verbose = False)
         scores[target] = all_acc
         
-    fig, ax = plt.subplots(figsize=(10, 1.5))
-    ax.axis("off")
+    fig, ax = plt.subplots(figsize=(10, 1.8))
+    ax.axis('off')
     
     col_labels = [f"Digit {d}" for d in digits]
     cell_text = [[f"{s*100:.2f}%" for s in scores]]
@@ -49,15 +49,17 @@ def allvsone(X_train: np.ndarray, y_train: np.ndarray, X_val: np.ndarray,
     table = ax.table(
         cellText= cell_text,
         colLabels= col_labels,
-        loc="center",
-        cellLoc="center",
+        loc='center',
+        cellLoc='center',
+        bbox=[0.0,0.0,1.0,0.8]
     )
     
     table.scale(1.0, 2.0)
     table.set_fontsize(12)
     
     plt.tight_layout
-    plt.savefig(PLOT_DIR / "all_preds.png")
+    ax.set_title("All vs. One digit-wise prediction accuracies", fontsize = 13, pad = 2)
+    plt.savefig(PLOT_DIR / "all_preds.png",  dpi=300, bbox_inches='tight')
 
 
 if __name__ == '__main__':

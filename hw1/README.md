@@ -29,7 +29,8 @@ The images were flattened for easier processing. This also meant that the bias t
 
 
 ## 4. Accuracy
-Accuracy was defined to be: "The ratio of correct predictions to the total predictions made on the validation set." After each training epoch, this ratio and corresponding weights were saved. Below are tables for pairwise accuracy and all vs. one accuracy. They were generated with the `analyze.py` script
+Accuracy was defined to be: "The ratio of correct predictions to the total predictions made on the validation set." After each training epoch, this ratio and corresponding weights were saved. Below are tables for pairwise accuracy and all vs. one accuracy. They were generated with the `analyze.py` script, with the scores determined by taking the prediction ratio of the best-performing weights $w$ during 15 epochs of training.
+
 
 ![Pairwise prediction matrix](figures/pairwise_preds.png)
 
