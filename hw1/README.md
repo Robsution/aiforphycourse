@@ -2,9 +2,9 @@
 
 ## 1. Essentials
 The Perceptron Linear Algorithm is a supervised learning algorithm used for binary classification introduced by Rosenblatt. The variables are:
-- the inputs $x$: in the case of `MNIST`, these will be grayscale $28 \times 28$ images, 
+- the inputs $\vec{x}$: in the case of `MNIST`, these will be grayscale $28 \times 28$ images, 
 - labels of the inputs $y$: for `MNIST` these are digits $0-9$, 
-- and the weights $w$.
+- and the weights $\vec{w}$.
 
 The weights are only updated when the prediction algorithm fails via the rule $\vec{w} \leftarrow \vec{w} + y (\vec{w} \cdot \vec{x})$ based on Rosenblatt's proposal. The idea is: When the perceptron fails, the prediction-label product is negative, 
 
